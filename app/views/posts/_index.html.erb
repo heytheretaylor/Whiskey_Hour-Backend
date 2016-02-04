@@ -1,0 +1,7 @@
+<p>
+<div class="post">
+<div class="post-handle"><strong><%= p.user.handle %>:</strong></div>
+<div class="post-content"><%= p.content %></div>
+<div class="post-time"><%= time_n_day(p.created_at) if p.created_at != nil %></div>
+</div>
+</p>

@@ -1,0 +1,6 @@
+<%= form_for(whiskey) do |f| %>
+  <%= f.label :name, "What's the whiskey Called?" %>
+  <%= f.text_field :name, autofocus: true %>
+  <%= f.file_field :image %>
+  <%= f.submit "post!" %>
+<% end %>

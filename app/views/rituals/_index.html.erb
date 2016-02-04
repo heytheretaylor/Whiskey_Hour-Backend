@@ -1,0 +1,20 @@
+<p>
+<h3><%= link_to "Session #{s.id}", ritual_path(s) %></h3>
+<h4><%= "Date: #{date_pretty(s.date_of)}"%>
+<h4><%= "Members"%></h4>
+<% user.each do |u|%>
+<% attend = attendance.where(:ritual => s)%>
+<ul>
+<% rsvp = attend.where(:user => u).last %>
+<%if rsvp.nil? %>
+<% else %>
+	<%if rsvp.is_coming %>
+	<li><%= u.email %></li>
+	<% else %>
+	<% end %>
+
+<%end%>
+</ul>
+
+<%end%>
+</p>

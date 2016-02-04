@@ -1,0 +1,11 @@
+<h1>Sessions</h1>
+
+
+<% @ritual.each do |s| %>
+<%= render 'rituals/index', s: s, attendance: @attendance, user: @user %>
+<%end%>
+
+
+
+
+

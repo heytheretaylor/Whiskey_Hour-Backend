@@ -1,0 +1,34 @@
+
+<% case %>
+<% when @current_attend == false %>
+Get involved
+<% when  @current_attend.is_coming %>
+See you there hot shot
+<% when @current_attend.is_coming == false %>
+Not coming? Your loss
+<% else %>
+Hmm something went wrong.
+<% end %>
+<br>
+<% @attendances.each do |a| %>
+<div class="a">
+
+<div class="a-userb"><strong>User Email</strong></div>
+<% if a.user.nil? %>
+<h1>no user</h1>
+<% else %>
+<div class="a-userb"><%= a.user.email %></div>
+<% end %>
+
+<div class="a-email"><strong>Session Date</strong></div>
+<% b = a.ritual.date_of %>
+<%if b.nil? %>
+	<h1>No date</h1>
+	<% else %>
+	<%= "#{b.strftime("%A")}, the #{b.strftime("%d")} of #{b.strftime("%B")}" %>
+	<% end %>
+<div class="a-is_coming"><strong><%= a.is_coming %></strong></div>
+
+</div>
+<br>
+<% end %>

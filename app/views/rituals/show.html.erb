@@ -1,0 +1,28 @@
+<%= link_to "Back to sessions", rituals_path %>
+
+<div class="ritual">
+<%= render 'rituals/index', s: @ritual, attendance: @attendance, user: @user %>
+<% if @ritual.whiskey_id.nil? %>
+<i>Add a whiskey?</i>
+<%= render 'whiskeys/new', whiskey: @new_whiskey%>
+<% else %>
+<%= @ritual.whiskey %>
+<% end %>
+
+</div>
+<%= form_for(@post_new) do |f| %>
+  <%= f.label :content, "What did you think?" %>
+  <%= f.hidden_field :ritual_id, :value => @ritual.id %>
+  <%= f.text_field :content, autofocus: true %>
+
+  <%= f.submit "Submit" %>
+<% end %>
+
+
+
+ 
+
+<%	 @ritual_posts.each do |a| %>
+<%= render 'posts/index', p: a %>
+<% end %>
+

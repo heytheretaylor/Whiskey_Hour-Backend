@@ -1,0 +1,20 @@
+<% b = @ritual.date_of %>
+<h3>The next ritual will be on <%= "#{b.strftime("%A")}, the #{b.strftime("%d")} of #{b.strftime("%B")}" %>
+
+<br>
+
+<% if @current_attend == false %>
+	Will you be joining us?	
+<%else%>
+	<%if @current_attend.is_coming %>
+		Still coming?
+		<% else %>
+		Changed your mind?
+	<% end %>
+<%end%>
+<%= render 'attendances/new', attendance: @attendance, current_attend: @current_attend %>
+
+
+<br>
+<%= @can_use %>
+
